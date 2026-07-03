@@ -1,0 +1,33 @@
+name: Auto Update M3U
+on:
+  schedule:
+    - cron: '0 */3 * * *' # প্রতি ৩ ঘণ্টা পর পর অটো রান হবে
+  workflow_dispatch: # ম্যানুয়ালি ক্লিক করে রান করার বাটন
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install Dependencies
+      run: pip install requests
+
+    - name: Run Bioscope Script
+      run: python update_m3u.py
+
+    - name: Commit and Push M3U File
+      run: |
+        git config --global user.name 'Bioscope Bot'
+        git config --global user.email 'bot@bioscope.com'
+        git add live_playlist.m3u
+        git commit -m "Bioscope Links Auto Updated" || exit 0
+        git push
