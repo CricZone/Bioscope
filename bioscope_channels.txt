@@ -1,0 +1,8 @@
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/JetpackDuba/Gitr/master/images/somoy.png", Somoy TV
+somoy
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/JetpackDuba/Gitr/master/images/jamuna.png", Jamuna TV
+jamuna
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/JetpackDuba/Gitr/master/images/independent.png", Independent TV
+independent
